@@ -37,26 +37,28 @@
 \begin{frame}[fragile]{Loops}
 	To repeat statements as long as a certain condition is met, C offers 3 different loops.
 	\begin{lstlisting}[numbers=none,basicstyle=\itshape\footnotesize]
-while (condition)
+while (condition) {
 	statement;
+}
 \end{lstlisting}
 	\begin{lstlisting}[numbers=none,basicstyle=\itshape\footnotesize]
-do
+do {
 	statement;
-while (condition);
+} while (condition);
 \end{lstlisting}
 	\begin{lstlisting}[numbers=none,basicstyle=\itshape\footnotesize]
-for (initialization; condition; statement)
+for (initialization; condition; statement) {
 	statement;
+}
 \end{lstlisting}
-	For multiple statements again, use braces.
 \end{frame}
 \begin{frame}[fragile]{while}
 	The execution of a loop is a continuous alternation between checking if the condition is still met and executing the statement(s).
 	\begin{lstlisting}
 int i = 2;
-while (i > 0)
+while (i > 0) {
 	- -i;
+}
 printf("done\n");
 \end{lstlisting}
 	\begin{enumerate}[<+(1)->]
@@ -75,9 +77,9 @@ printf("done\n");
 	The \textit{while} loop begins with checking, while the \textit{do...while} loop begins with executing the statement(s).
 	\begin{lstlisting}[numbers=none]
 int i = 3;
-do
+do {
 	- -i;
-while (i < 1);
+} while (i < 1);
 \end{lstlisting}
 	\bigskip
 	The Statement(s) in a \textit{do ... while} loop are executed at least once.
@@ -93,8 +95,9 @@ while (i < 1);
 	For illustration, consider a program printing the numbers 1 to 10:
 	\begin{lstlisting}[numbers=none]
 int i;
-for (i = 1; i <= 10; ++i)
+for (i = 1; i <= 10; ++i) {
 	printf("%d\n", i);
+}
 \end{lstlisting}
 	\begin{itemize}
 		\item \textit{i} is called an \textit{index} iterating from the given start to a given end value
@@ -107,8 +110,9 @@ for (i = 1; i <= 10; ++i)
 \begin{frame}[fragile]{Meanwhile...}
 	Be careful, this
 	\begin{lstlisting}[numbers=none]
-while (1 > 0)
+while (1 > 0) {
 	printf("Did you miss me?\n");
+}
 \end{lstlisting}
 runs till the end of all days.\\
 \ \\$\infty$ loops are common mistakes, and you will experience many of them.\\
@@ -155,15 +159,17 @@ Note: the semicolons are still there.
 \begin{frame}[fragile]{Saving code lines}
 	You can define variables inside the initialization part of a for loop.
 	\begin{lstlisting}[numbers=none]
-for (int i = 1; i <= 10; ++i)
+for (int i = 1; i <= 10; ++i) {
 	printf("%d\n", i);
+}
 \end{lstlisting}
 	\ \\\ \\In that case, the variable is only available inside the for loop (as if it was declared in the body).\\
 	\begin{lstlisting}
 int guess = 0;
 int solution = 42;
-for (int i = 1; guess != solution; ++i)
+for (int i = 1; guess != solution; ++i) {
 	scanf("%d", &guess);
+}
 printf("Tries: %d\n", i);	/* invalid! */
 \end{lstlisting}
 	This feature was added in the C99 standard.
